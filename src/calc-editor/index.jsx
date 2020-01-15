@@ -87,6 +87,9 @@ export default class MonacoEditor extends React.Component {
   }
 
   render() {
-    return <div ref={c => this._node = c} style={{"width":"800px","height":"600px","border":"1px solid grey"}} />
+    return (<>
+		<p>Calc Editor</p>
+		<div ref={c => this._node = c} style={{"width":"800px","height":"600px","border":"1px solid grey"}} />
+	</>);
   }
 }

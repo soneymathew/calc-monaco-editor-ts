@@ -98,7 +98,7 @@ export function parseTreeStr(input: string) {
 class CalcErrorStrategy extends DefaultErrorStrategy {
     // @ts-ignore
     singleTokenDeletion(recognizer: Recognizer) {
-        if (recognizer.getTokenStream().LA(1) == CalcParser.NL) {
+        if (recognizer.inputStream.LA(1) == CalcParser.NL) {
             return null;
         }
         return super.singleTokenDeletion(recognizer);
