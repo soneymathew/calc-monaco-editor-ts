@@ -14,15 +14,15 @@ eol:
     ;
 
 input:
-	INPUT_KW ID eol
+	INPUT_KW ID eol*
     ;
 
 output:
-    OUTPUT_KW ID eol
+    OUTPUT_KW ID eol*
     ;
 
 calc:
-	target=ID EQUAL value=expression eol
+	target=ID EQUAL value=expression eol*
 	;
 
 expression:

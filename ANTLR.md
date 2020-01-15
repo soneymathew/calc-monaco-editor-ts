@@ -24,3 +24,9 @@ Update scripts in package.json
     ...
   },
 ```
+
+# Add monaco editor
+
+```
+yarn add monaco-editor @monaco-editor/react
+```
