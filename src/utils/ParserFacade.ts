@@ -6,9 +6,9 @@ import {CalcLexer} from "../generated/CalcLexer"
 import {CalcParser} from "../generated/CalcParser"
 
 
-// @ts-ignore
+// @ts-ignore VALID
 class ConsoleErrorListener implements ANTLRErrorListener {
-    // @ts-ignore TS7006
+    // @ts-ignore TS7006 VALID
     syntaxError(recognizer, offendingSymbol, line, column, msg, e) {
         console.log("ERROR " + msg);
     }
@@ -31,7 +31,7 @@ export class Error {
 
 }
 
-// @ts-ignore
+// @ts-ignore VALID
 class CollectorErrorListener implements ANTLRErrorListener {
 
     private errors : Error[] = []
@@ -64,7 +64,7 @@ export function getTokens(input: string) : Token[] {
     return createLexer(input).getAllTokens()
 }
 
-function createParser(input: string) {
+export function createParser(input: string) {
     const lexer = createLexer(input);
 
     return createParserFromLexer(lexer);
@@ -96,7 +96,7 @@ export function parseTreeStr(input: string) {
 }
 
 class CalcErrorStrategy extends DefaultErrorStrategy {
-    // @ts-ignore
+    // @ts-ignore MEH
     singleTokenDeletion(recognizer: Recognizer) {
         if (recognizer.inputStream.LA(1) == CalcParser.NL) {
             return null;
@@ -115,7 +115,7 @@ export function validate(input: string) : Error[] {
     const parser = createParserFromLexer(lexer);
     parser.removeErrorListeners();
     parser.addErrorListener(new CollectorErrorListener(errors));
-    // @ts-ignore
+    // @ts-ignore TODO
     parser._errHandler = new CalcErrorStrategy();
 
     const tree = parser.compilationUnit();

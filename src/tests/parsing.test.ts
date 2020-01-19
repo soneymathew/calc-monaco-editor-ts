@@ -1,15 +1,17 @@
-let assert = require('assert');
 import * as parserFacade from '../utils/ParserFacade';
 import {CalcLexer} from '../generated/CalcLexer';
+let assert = require('assert');
 
+// @ts-ignore FIX
 function checkToken(tokens, index, typeName, column, text) {
     it('should have ' + typeName + ' in position ' + index, function () {
+        // @ts-ignore FIX
         assert.equal(tokens[index].type, CalcLexer[typeName]);
         assert.equal(tokens[index].column, column);
         assert.equal(tokens[index].text, text);
     });
 }
-
+// @ts-ignore FIX
 function checkError(actualError, expectedError) {
     it('should have startLine ' + expectedError.startLine, function () {
         assert.equal(actualError.startLine, expectedError.startLine);
@@ -28,6 +30,7 @@ function checkError(actualError, expectedError) {
     });
 }
 
+// @ts-ignore FIX
 function checkErrors(actualErrors, expectedErrors) {
     it('should have ' + expectedErrors.length  + ' error(s)', function (){
         assert.equal(actualErrors.length, expectedErrors.length);
@@ -38,6 +41,7 @@ function checkErrors(actualErrors, expectedErrors) {
     }
 }
 
+// @ts-ignore FIX
 function parseAndCheckErrors(input, expectedErrors) {
     let errors = parserFacade.validate(input);
     checkErrors(errors, expectedErrors);

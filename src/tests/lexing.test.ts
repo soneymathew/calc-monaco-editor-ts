@@ -1,9 +1,11 @@
-let assert = require('assert');
 import * as parserFacade from '../utils/ParserFacade';
 import {CalcLexer} from '../generated/CalcLexer';
+let assert = require('assert');
 
+// @ts-ignore FIX
 function checkToken(tokens, index, typeName, column, text) {
     it('should have ' + typeName + ' in position ' + index, function () {
+        // @ts-ignore FIX
         assert.equal(tokens[index].type, CalcLexer[typeName]);
         assert.equal(tokens[index].startIndex, column);
         assert.equal(tokens[index].text, text);
